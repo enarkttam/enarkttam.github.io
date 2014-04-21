@@ -55,7 +55,7 @@ function HomeControl(controlDiv, map) {
 
 function initialize() {
   var mapOptions = {
-    zoom: 13,
+    zoom: 8,
     maxZoom: 17,
     center: new google.maps.LatLng(42.4, -71.1),
     scaleControl: true,
@@ -333,10 +333,7 @@ function initialize() {
 
   createOpacityControl(map);
   map.overlayMapTypes.insertAt(0, overlayfull);
-  map.overlayMapTypes.removeAt(0);
-  map.overlayMapTypes.insertAt(0, overlay13);
-  overlay = overlay13;
-  setOpacity(opacityCtrlKnob.valueX());
+  overlay = overlayfull;
 
   var homeControlDiv = document.createElement('div');
   var homeControl = new HomeControl(homeControlDiv, map);
