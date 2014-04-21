@@ -5,11 +5,10 @@ body, html {
   padding: 0;
 }
 
-input, button {
+input[type=button] {
   line-height: 1.4;
   font: 13px Helvetica,arial,freesans,clean,sans-serif;
 }
-
 
 a {
   color: #4183C4;
