@@ -4,49 +4,19 @@
     <title>Light Pollution Atlas with Geocoding</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <style>
-      html, body, #map-canvas {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-      }
-    </style>
+    
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 
     <script type="text/javascript" src="ExtDraggableObject.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
-    <script src="/jquery.geocomplete.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../jquery.geocomplete.js"></script>
     <script src="logger.js"></script>
     <script>
-      $(function(){
-        
-        var options = {
-        map: ".map-canvas"
-        };
-        
-        $("#geocomplete").geocomplete(options)
-        .bind("geocode:result", function(event, result){
-              $.log("Result: " + result.formatted_address);
-              })
-        .bind("geocode:error", function(event, status){
-              $.log("ERROR: " + status);
-              })
-        .bind("geocode:multiple", function(event, results){
-              $.log("Multiple: " + results.length + " results found");
-              });
-        
-        $("#find").click(function(){
-                         $("#geocomplete").trigger("geocode");
-                         });
-        
-        $("#examples a").click(function(){
-                               $("#geocomplete").val($(this).text()).trigger("geocode");
-                               return false;
-                               });
-        
-        });
+   
       </script>
+
 
     <script>
 var map, overlay;
@@ -96,8 +66,36 @@ function initialize() {
     scaleControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
+  map = new google.maps.Map(document.getElementsByClassName('map_canvas')[0],
       mapOptions);
+      
+      $(function(){
+        
+        var options = {
+        map: map
+        };
+        
+        $("#geocomplete").geocomplete(options)
+        .bind("geocode:result", function(event, result){
+              $.log("Result: " + result.formatted_address);
+              })
+        .bind("geocode:error", function(event, status){
+              $.log("ERROR: " + status);
+              })
+        .bind("geocode:multiple", function(event, results){
+              $.log("Multiple: " + results.length + " results found");
+              });
+        
+        $("#find").click(function(){
+                         $("#geocomplete").trigger("geocode");
+                         });
+        
+        $("#examples a").click(function(){
+                               $("#geocomplete").val($(this).text()).trigger("geocode");
+                               return false;
+                               });
+        
+        });
 
   var bounds = {
      0: [[0,  0], [0, 0]],
@@ -447,7 +445,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <input id="geocomplete" type="text" placeholder="Type in an address" size="90" />
       <input id="find" type="button" value="find" />
     </form>
-    <div id="map-canvas"></div>
+    <div class="map_canvas"></div>
     <pre id="logger">Log:</pre>
   </body>
 </html>
