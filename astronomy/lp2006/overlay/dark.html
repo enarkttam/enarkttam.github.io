@@ -6,18 +6,19 @@
     <meta charset="utf-8">
     
     <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <form>
+      <input id="geocomplete" type="text" placeholder="Type in an address" size="90" />
+      <input id="find" type="button" value="Find" />
+    </form>
+    <div class="map_canvas"></div>
 
     <script type="text/javascript" src="ExtDraggableObject.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="../jquery.geocomplete.js"></script>
     <script src="logger.js"></script>
-    <script>
-   
-      </script>
-
-
     <script>
 var map, overlay;
 var initialOpacity = 0.5;
@@ -364,12 +365,9 @@ function initialize() {
     }
   });
   
-  overlay = overlayfull
-  createOpacityControl(map);
-  map.overlayMapTypes.insertAt(0, overlayfull);
-  map.overlayMapTypes.removeAt(0);
-  map.overlayMapTypes.insertAt(0, overlay11);
   overlay = overlay11
+  createOpacityControl(map);
+  map.overlayMapTypes.insertAt(0, overlay11);
   setOpacity(opacityCtrlKnob.valueX());
 
   var homeControlDiv = document.createElement('div');
@@ -439,13 +437,5 @@ function findPosLeft(obj) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-  </head>
-  <body>
-    <form>
-      <input id="geocomplete" type="text" placeholder="Type in an address" size="90" />
-      <input id="find" type="button" value="find" />
-    </form>
-    <div class="map_canvas"></div>
-    <pre id="logger">Log:</pre>
   </body>
 </html>
