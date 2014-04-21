@@ -52,7 +52,7 @@
       draggable: false
     },
 
-    maxZoom: 16,
+    maxZoom: 12,
     types: ['geocode'],
     blur: false
   };
