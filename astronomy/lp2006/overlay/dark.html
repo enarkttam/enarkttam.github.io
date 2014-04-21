@@ -330,10 +330,10 @@ function initialize() {
 
     }
   });
-
+  
+  overlay = overlayfull
   createOpacityControl(map);
   map.overlayMapTypes.insertAt(0, overlayfull);
-  overlay = overlayfull;
 
   var homeControlDiv = document.createElement('div');
   var homeControl = new HomeControl(homeControlDiv, map);
