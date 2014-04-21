@@ -15,10 +15,6 @@ a {
   text-decoration: none;
 }
 
-#examples a {
-  text-decoration: underline;
-}
-
 #geocomplete { width: 33%}
 
 .map_canvas { 
