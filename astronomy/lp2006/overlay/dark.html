@@ -57,7 +57,7 @@ function initialize() {
   var mapOptions = {
     zoom: 9,
     maxZoom: 17,
-    center: new google.maps.LatLng(32.4, -71.1),
+    center: new google.maps.LatLng(42.4, -71.1),
     scaleControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -334,6 +334,10 @@ function initialize() {
   overlay = overlayfull
   createOpacityControl(map);
   map.overlayMapTypes.insertAt(0, overlayfull);
+  map.overlayMapTypes.removeAt(0);
+  map.overlayMapTypes.insertAt(0, overlay9);
+  overlay = overlay9;
+  setOpacity(opacityCtrlKnob.valueX());
 
   var homeControlDiv = document.createElement('div');
   var homeControl = new HomeControl(homeControlDiv, map);
