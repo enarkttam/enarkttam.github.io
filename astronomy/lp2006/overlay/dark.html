@@ -27,9 +27,9 @@ var OPACITY_MAX_PIXELS = 57; // Width of opacity control image
 
 function initialize() {
   var mapOptions = {
-    zoom: 11,
+    zoom: 3,
     maxZoom: 17,
-    center: new google.maps.LatLng(42.4, -71.1),
+    center: new google.maps.LatLng(10, -20),
     scaleControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -75,8 +75,7 @@ function initialize() {
      6: [[0, 63], [11,47]]
   };
 
-  var zoomLevel = 2;
-  var first = 1;
+  var zoomLevel = 1;
 
   var overlayfull = new google.maps.ImageMapType({
     getTileUrl: function(coord, zoom) {
@@ -332,9 +331,9 @@ function initialize() {
     }
   });
   
-  overlay = overlay11
+  overlay = overlayfull
   createOpacityControl(map);
-  map.overlayMapTypes.insertAt(0, overlay11);
+  map.overlayMapTypes.insertAt(0, overlayfull);
   setOpacity(opacityCtrlKnob.valueX());
 }
 
