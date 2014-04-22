@@ -119,11 +119,6 @@
         $.proxy(this.mapClicked, this)
       );
 
-      google.maps.event.addListener(
-        this.map,
-        'zoom_changed',
-        $.proxy(this.mapZoomed, this)
-      );
     },
 
     // Add a marker with the provided `markerOptions` but only
@@ -429,10 +424,6 @@
 
     mapClicked: function(event) {
         this.trigger("geocode:click", event.latLng);
-    },
-
-    mapZoomed: function(event) {
-      this.trigger("geocode:zoom", this.map.getZoom());
     },
 
     // Restore the old position of the marker to the last now location.
